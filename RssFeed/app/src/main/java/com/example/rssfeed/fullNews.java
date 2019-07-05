@@ -1,11 +1,9 @@
 package com.example.rssfeed;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -115,12 +113,12 @@ public class fullNews extends AppCompatActivity {
 
         Log.i("url", url);
 
-        txt4 = (TextView) findViewById(R.id.textView4);
-        txt5 = (TextView) findViewById(R.id.textView5);
-        txt6 = (TextView) findViewById(R.id.textView6);
-        txt7 = (TextView) findViewById(R.id.textView7);
-        txt8 = (TextView) findViewById(R.id.textView8);
-        txt9 = (TextView) findViewById(R.id.textView9);
+        txt4 = findViewById(R.id.textView4);
+        txt5 = findViewById(R.id.textView5);
+        txt6 = findViewById(R.id.textView6);
+        txt7 = findViewById(R.id.textView7);
+        txt8 = findViewById(R.id.textView8);
+        txt9 = findViewById(R.id.textView9);
 
         DownloadTask task = new DownloadTask();
         task.execute(url);

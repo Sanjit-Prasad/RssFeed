@@ -4,23 +4,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -33,7 +23,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -109,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
                     textView.setId((int) System.currentTimeMillis());
                     textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
+                    //create TextView for Summary
+                    final TextView textView2 = new TextView(MainActivity.this);
+                    textView2.setId((int) System.currentTimeMillis());
+                    textView2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
                     if (jsonObject.getString("title") != null) {
                         textView.setText(jsonObject.getString("title"));
                         textView.setTextSize(23f);
@@ -129,18 +123,14 @@ public class MainActivity extends AppCompatActivity {
                                             gett = "1";
                                         intent.putExtra("id",gett);
                                         startActivity(intent);
+                                        mainBox.setBackgroundColor(0xFFFFFF00);
                                     }
                                 });
                                 return false;
                             }
                         });
-
                     }
 
-                    //create TextView for Summary
-                    final TextView textView2 = new TextView(MainActivity.this);
-                    textView2.setId((int) System.currentTimeMillis());
-                    textView2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
                     if (jsonObject.getString("summary") != null) {
                         textView2.setText(jsonObject.getString("summary"));
@@ -163,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                                             gett = "1";
                                         intent.putExtra("id",gett);
                                         startActivity(intent);
+                                        mainBox.setBackgroundColor(0xFFFFFF00);
                                     }
                                 });
                                 return false;
